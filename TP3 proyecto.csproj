@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formularios\Exponencial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Exponencial.Designer.cs">
+      <DependentUpon>Exponencial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\Exponencial.resx">
+      <DependentUpon>Exponencial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
