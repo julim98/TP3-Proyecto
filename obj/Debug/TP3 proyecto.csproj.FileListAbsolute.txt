@@ -1,0 +1,12 @@
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\bin\Debug\TP3 proyecto.exe.config
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\bin\Debug\TP3 proyecto.exe
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\bin\Debug\TP3 proyecto.pdb
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3_proyecto.Formularios.Exponencial.resources
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3_proyecto.Formularios.Grafico.resources
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3_proyecto.Form1.resources
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3_proyecto.Properties.Resources.resources
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3 proyecto.csproj.GenerateResource.cache
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3 proyecto.csproj.CoreCompileInputs.cache
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3 proyecto.exe
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3 proyecto.pdb
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3_proyecto.Formularios.Uniforme.resources

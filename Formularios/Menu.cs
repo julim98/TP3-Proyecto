@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TP3_proyecto.Formularios;
 
 namespace TP3_proyecto
 {
@@ -15,6 +16,18 @@ namespace TP3_proyecto
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void bExponencial_Click(object sender, EventArgs e)
+        {
+            Exponencial exponencial = new Exponencial();
+            exponencial.Show();
+        }
+
+        private void bUniforme_Click(object sender, EventArgs e)
+        {
+            Uniforme uniforme = new Uniforme();
+            uniforme.Show();
         }
     }
 }
