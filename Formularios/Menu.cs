@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TP3_proyecto.Formularios;
 
 namespace TP3_proyecto
 {
@@ -15,6 +16,12 @@ namespace TP3_proyecto
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void bPoisson_Click(object sender, EventArgs e)
+        {
+            Poisson poisson = new Poisson();
+            poisson.Show();
         }
     }
 }

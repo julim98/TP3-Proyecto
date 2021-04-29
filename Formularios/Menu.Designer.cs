@@ -43,6 +43,7 @@
             this.bPoisson.TabIndex = 0;
             this.bPoisson.Text = "Poisson";
             this.bPoisson.UseVisualStyleBackColor = true;
+            this.bPoisson.Click += new System.EventHandler(this.bPoisson_Click);
             // 
             // bExponencial
             // 
