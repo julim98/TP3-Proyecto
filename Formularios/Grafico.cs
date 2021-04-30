@@ -64,39 +64,69 @@ namespace TP3_proyecto.Formularios
             else return false;
         }
 
-        private int[] asignarIntervalos(int total, int cantIntervalos)
+        private int[] asignarIntervalos(decimal[] minMax, int cantIntervalos)
         {
-            int[] posiciones = new int[listaLocal.Length];
-            int intervaloMax = total / cantIntervalos;
-            int intervaloMin = 0;
+            int[] posiciones = new int[cantIntervalos];
+            decimal intervalo = (minMax[1] - minMax[0]) / (cantIntervalos - 1);
+            decimal intervaloMax = minMax[0] + intervalo;
+            decimal intervaloMin = minMax[0];
             for (int i = 0; i < cantIntervalos; i++)
             {
                 for (int j = 0; j < listaLocal.Length; j++)
                 {
                     if (listaLocal[j] < intervaloMax && listaLocal[j] >= intervaloMin)
                     {
-                        posiciones[j] = i; 
+                        posiciones[i] += 1; 
                     }
                 }
+                intervaloMin = intervaloMax;
+                intervaloMax = intervaloMax + intervalo; 
             }
 
             return posiciones;
+        }
+
+        private decimal[] buscarMinMax()
+        {
+            decimal min = listaLocal[0];
+            decimal max = listaLocal[0];
+            decimal[] resultados = new decimal[2];
+
+            for (int i = 0; i < listaLocal.Length; i++)
+            {
+                if (listaLocal[i] > max)
+                {
+                    max = listaLocal[i];
+                }
+                if (listaLocal[i] < min)
+                {
+                    min = listaLocal[i];
+                }
+            }
+
+            resultados[0] = min;
+            resultados[1] = max;
+            return resultados;
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             if (verificarSeleccion())
             {
-                graficoValores.Series[0].Points.Clear();
+                graficoValores.Series.Clear();
+                graficoValores.Series.Add("Valores");
+                decimal[] minMax = buscarMinMax();
+                int cantIntervalos = cantidadIntervalos();
+                decimal intervalo = (minMax[1] - minMax[0]) / (cantIntervalos - 1);
+                int[] valores = asignarIntervalos(minMax, cantIntervalos);
 
-                graficoValores.ChartAreas[0].AxisX.Interval = listaLocal.Length / cantidadIntervalos();
-                int[] valores = asignarIntervalos(listaLocal.Length, cantidadIntervalos());
-                // int[] intervaloValores = asignarIntervalos(listaLocal.Length, cantidadIntervalos());
-
-                for (int i = 0; i < listaLocal.Length; i++)
+                for (int i = 0; i < cantIntervalos; i++)
                 {
-                    // graficoValores.Series[0].Points.AddXY(intervaloValores[i], listaLocal[i]);
-                    graficoValores.Series[0].Points.AddXY(valores[i], 1);
+                    decimal min = decimal.Round(minMax[0] + (i * intervalo), 4);
+                    decimal max = decimal.Round(minMax[0] + ((i + 1) * intervalo), 4);
+                    string nombreIntervalo = (i + 1).ToString() + ": " + (min).ToString() + "-" + (max).ToString();
+                    graficoValores.Series.Add(nombreIntervalo);
+                    graficoValores.Series[0].Points.AddXY((double) (i+1), (double)valores[i]);
                 }
 
             }

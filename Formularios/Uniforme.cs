@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TP3_proyecto.Formularios;
 
 namespace TP3_proyecto.Formularios
 {
     public partial class Uniforme : Form
     {
+        decimal[] lista;
+
         public Uniforme()
         {
             InitializeComponent();
@@ -23,6 +26,8 @@ namespace TP3_proyecto.Formularios
             {
                 Random rand = new Random();
                 int cantidad = int.Parse(txtCantidad.Text);
+                lista = new decimal[cantidad];
+
                 grilla.Rows.Clear();
                 for (int i = 0; i < cantidad; i++)
                 {
@@ -30,6 +35,7 @@ namespace TP3_proyecto.Formularios
                     int limiteB = int.Parse(txtLimiteB.Text);
                     decimal x = (decimal) (limiteA + rand.NextDouble() * (limiteB - limiteA));
                     x = decimal.Round(x, 4);
+                    lista[i] = x;
                     grilla.Rows.Add(i + 1, x);
                 }
             }
@@ -73,6 +79,21 @@ namespace TP3_proyecto.Formularios
             return true;
         }
 
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
 
+        private void btnGrafico_Click(object sender, EventArgs e)
+        {
+            Grafico grafico = new Grafico(lista);
+            grafico.Show();
+        }
+
+        private void btnChi_Click(object sender, EventArgs e)
+        {
+            TestChiCuadrado test = new TestChiCuadrado(lista);
+            test.Show();
+        }
     }
 }

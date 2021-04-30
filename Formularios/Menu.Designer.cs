@@ -43,6 +43,7 @@
             this.bPoisson.TabIndex = 0;
             this.bPoisson.Text = "Poisson";
             this.bPoisson.UseVisualStyleBackColor = true;
+            this.bPoisson.Click += new System.EventHandler(this.bPoisson_Click);
             // 
             // bExponencial
             // 
@@ -62,6 +63,7 @@
             this.bUniforme.TabIndex = 2;
             this.bUniforme.Text = "Uniforme";
             this.bUniforme.UseVisualStyleBackColor = true;
+            this.bUniforme.Click += new System.EventHandler(this.bUniforme_Click);
             // 
             // bNormal
             // 

@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TP3_proyecto.Formularios;
+
 
 namespace TP3_proyecto.Formularios
 {
     public partial class Normal : Form
     {
+        decimal[] lista;
+
         public Normal()
         {
             InitializeComponent();
@@ -47,6 +51,7 @@ namespace TP3_proyecto.Formularios
                 int cantidad = int.Parse(txtCantidad.Text);
                 double media = double.Parse(txtMedia.Text);
                 double varianza = (double)decimal.Parse(Math.Sqrt(double.Parse(txtVarianza.Text)).ToString());
+                lista = new decimal[cantidad];
 
                 grilla.Rows.Clear();
 
@@ -59,6 +64,7 @@ namespace TP3_proyecto.Formularios
                     {
                         string n1s = (Math.Sqrt(-2 * Math.Log(random1)) * Math.Cos(2 * Math.PI * random2) * varianza + media).ToString();
                         decimal n1 = decimal.Round(decimal.Parse(n1s), 4);
+                        lista[i] = n1;
 
                         grilla.Rows.Add(i + 1, n1);
                     }
@@ -66,6 +72,7 @@ namespace TP3_proyecto.Formularios
                     {
                         string n2s = (Math.Sqrt(-2 * Math.Log(random1)) * Math.Sin(2 * Math.PI * random2) * varianza + media).ToString();
                         decimal n2 = decimal.Round(decimal.Parse(n2s), 4);
+                        lista[i] = n2;
 
                         grilla.Rows.Add(i + 1, n2);
 
@@ -74,6 +81,23 @@ namespace TP3_proyecto.Formularios
                     }
                 }
             }
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnGrafico_Click(object sender, EventArgs e)
+        {
+            Grafico grafico = new Grafico(lista);
+            grafico.Show();
+        }
+
+        private void btnChi_Click(object sender, EventArgs e)
+        {
+            TestChiCuadrado test = new TestChiCuadrado(lista);
+            test.Show();
         }
     }
 }

@@ -8,13 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TP1_SIM
+namespace TP3_proyecto.Formularios
 {
     public partial class TestChiCuadrado : Form
     {
         bool band_Ok = false;
+        decimal[] listaLocal;
+
         public TestChiCuadrado()
         {
+
+        }
+
+        public TestChiCuadrado(decimal[] lista)
+        {
+            listaLocal = new decimal[lista.Length];
+            for (int i = 0; i < lista.Length; i++)
+            {
+                listaLocal[i] = lista[i];
+            }
             InitializeComponent();
         }
 
@@ -24,7 +36,7 @@ namespace TP1_SIM
             {
                 MessageBox.Show("Debe Seleccionar un Intervalo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-                
+
             }
             if (band_Ok == false)
             {
@@ -35,7 +47,7 @@ namespace TP1_SIM
 
         private int cantidadIntervalos()
         {
-            int num; 
+            int num;
 
             if (rb5.Checked)
             {
@@ -49,48 +61,49 @@ namespace TP1_SIM
             {
                 num = 15;
             }
-            else { 
+            else
+            {
                 num = 20;
             }
-            
+
             return num;
         }
-        public double[] generarIntervalos(double [] numeros)
+        public decimal[] generarIntervalos(decimal[] numeros)
         {
             int num = cantidadIntervalos();
-            
-            double[] intervalos = new double[num];
-            float tam =  1 / (float) num;
+
+            decimal[] intervalos = new decimal[num];
+            decimal tam = 1 / (decimal)num;
 
             for (int i = 0; i < intervalos.Length; i++)
             {
-              
+
                 if (i == 0)
                 {
-                    intervalos[i] = Math.Round(tam,4);                   
+                    intervalos[i] = Math.Round(tam, 4);
                 }
                 else
-                {                   
-                    intervalos[i] = Math.Round(intervalos[i-1] + tam,4);         
+                {
+                    intervalos[i] = Math.Round(intervalos[i - 1] + tam, 4);
                 }
                 Console.WriteLine(intervalos[i]);
-                
+
             }
 
             return intervalos;
         }
 
-        private void CargarFrecuencias(double[] numeros , double[] intervalos)
+        private void CargarFrecuencias(decimal[] numeros, decimal[] intervalos)
         {
             int[] frecuencias = new int[intervalos.Length];
-            double suma = 0;
+            decimal suma = 0;
             for (int i = 0; i < numeros.Length; i++)
             {
                 suma += numeros[i];
 
                 for (int j = 0; j < intervalos.Length; j++)
                 {
-                    if(j == 0)
+                    if (j == 0)
                     {
                         if (numeros[i] < intervalos[j])
                         {
@@ -101,7 +114,7 @@ namespace TP1_SIM
                     }
                     else
                     {
-                        if ( intervalos[j-1] < numeros[i] && numeros[i] < intervalos[j])
+                        if (intervalos[j - 1] < numeros[i] && numeros[i] < intervalos[j])
                         {
                             frecuencias[j]++;
 
@@ -110,29 +123,34 @@ namespace TP1_SIM
                     }
                 }
             }
+
+            decimal sumC = 0;
             for (int i = 0; i < intervalos.Length; i++)
             {
+                string p1 = Math.Pow((double)(frecuencias[i] - suma / intervalos.Length), 2).ToString();
                 if (i == 0)
                 {
-                    
-                    dgvFrecuencias.Rows.Add(0, intervalos[i],frecuencias[i], suma/intervalos.Length);
+                    decimal c = Math.Round((decimal.Parse(p1) / suma / intervalos.Length), 4);
+                    sumC += c;
+                    dgvFrecuencias.Rows.Add(0, intervalos[i], frecuencias[i], suma / intervalos.Length, c, sumC);
                 }
                 else
                 {
-
-                    dgvFrecuencias.Rows.Add(intervalos[i - 1], intervalos[i],frecuencias[i], suma/intervalos.Length);
+                    decimal c = Math.Round((decimal.Parse(p1) / suma / intervalos.Length), 4);
+                    sumC += c;
+                    dgvFrecuencias.Rows.Add(intervalos[i - 1], intervalos[i], frecuencias[i], suma / intervalos.Length, c, sumC);
                 }
 
-            }
-            
-
-            
-        }
         
-        private double metodoMedia(double[] elem)
+
+            }
+        }        
+        
+        
+        private decimal metodoMedia(decimal[] elem)
         {
-            double media;
-            double suma = 0;
+            decimal media;
+            decimal suma = 0;
             
             for (int i = 0; i < elem.Length ; i++)
             {
@@ -144,15 +162,15 @@ namespace TP1_SIM
             return media;
             
         }
-        private double metodoVarianza(double[] elem)
+        private decimal metodoVarianza(decimal[] elem)
         {
-            double varianza;
-            double suma = 0;
-            double media = metodoMedia(elem);
+            decimal varianza;
+            decimal suma = 0;
+            decimal media = metodoMedia(elem);
 
             for (int i = 0; i < elem.Length; i++)
             {
-                suma += Math.Pow(elem[i] - media ,2) ;
+                suma += decimal.Parse(Math.Pow((double)(elem[i] - media) ,2).ToString()) ;
             }
 
             varianza = Math.Round(suma / elem.Length,4);
@@ -184,12 +202,10 @@ namespace TP1_SIM
             dgvSerie.Rows.Clear();
             if (band_Ok)
             {
-                //aca van los datos aleatorios
-                //double media = metodoMedia(elem);
-                //double varianza = metodoVarianza(elem);
-                //double[] intervalos = generarIntervalos(elem);
-                //CargarFrecuencias(elem, intervalos);
-
+                decimal media = metodoMedia(listaLocal);
+                decimal varianza = metodoVarianza(listaLocal);
+                decimal[] intervalos = generarIntervalos(listaLocal);
+                CargarFrecuencias(listaLocal, intervalos);
             }
         }
 

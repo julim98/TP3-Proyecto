@@ -40,6 +40,9 @@ namespace TP3_proyecto.Formularios
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.btnChi = new System.Windows.Forms.Button();
+            this.btnGrafico = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grilla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +90,7 @@ namespace TP3_proyecto.Formularios
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(123, 188);
+            this.btnGenerar.Location = new System.Drawing.Point(93, 210);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(75, 23);
             this.btnGenerar.TabIndex = 5;
@@ -110,9 +113,9 @@ namespace TP3_proyecto.Formularios
             this.grilla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Numero,
             this.Valor});
-            this.grilla.Location = new System.Drawing.Point(307, 31);
+            this.grilla.Location = new System.Drawing.Point(394, 31);
             this.grilla.Name = "grilla";
-            this.grilla.Size = new System.Drawing.Size(242, 192);
+            this.grilla.Size = new System.Drawing.Size(243, 220);
             this.grilla.TabIndex = 9;
             // 
             // Numero
@@ -132,11 +135,44 @@ namespace TP3_proyecto.Formularios
             this.txtCantidad.Size = new System.Drawing.Size(100, 20);
             this.txtCantidad.TabIndex = 10;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(12, 210);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(75, 23);
+            this.btnVolver.TabIndex = 15;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // btnChi
+            // 
+            this.btnChi.Location = new System.Drawing.Point(255, 210);
+            this.btnChi.Name = "btnChi";
+            this.btnChi.Size = new System.Drawing.Size(75, 23);
+            this.btnChi.TabIndex = 14;
+            this.btnChi.Text = "Test Chi";
+            this.btnChi.UseVisualStyleBackColor = true;
+            this.btnChi.Click += new System.EventHandler(this.btnChi_Click);
+            // 
+            // btnGrafico
+            // 
+            this.btnGrafico.Location = new System.Drawing.Point(174, 210);
+            this.btnGrafico.Name = "btnGrafico";
+            this.btnGrafico.Size = new System.Drawing.Size(75, 23);
+            this.btnGrafico.TabIndex = 13;
+            this.btnGrafico.Text = "Grafico";
+            this.btnGrafico.UseVisualStyleBackColor = true;
+            this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
+            // 
             // Uniforme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 263);
+            this.ClientSize = new System.Drawing.Size(649, 258);
+            this.Controls.Add(this.btnVolver);
+            this.Controls.Add(this.btnChi);
+            this.Controls.Add(this.btnGrafico);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.grilla);
             this.Controls.Add(this.label4);
@@ -168,5 +204,8 @@ namespace TP3_proyecto.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
         private System.Windows.Forms.TextBox txtCantidad;
+        private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button btnChi;
+        private System.Windows.Forms.Button btnGrafico;
     }
 }

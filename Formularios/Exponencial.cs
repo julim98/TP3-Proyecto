@@ -103,7 +103,8 @@ namespace TP3_proyecto.Formularios
 
         private void btnChi_Click(object sender, EventArgs e)
         {
-
+            TestChiCuadrado test = new TestChiCuadrado(lista);
+            test.Show();
         }
     }
 }

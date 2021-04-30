@@ -42,5 +42,6 @@ namespace TP3_proyecto
             Normal normal = new Normal();
             normal.Show();
         }
+
     }
 }

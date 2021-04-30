@@ -1,4 +1,4 @@
-﻿namespace TP1_SIM
+﻿namespace TP3_proyecto.Formularios
 {
     partial class TestChiCuadrado
     {
@@ -87,6 +87,7 @@
             this.btnGenerar.TabIndex = 11;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
             // rb20
             // 

@@ -30,7 +30,6 @@
         {
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnGenerar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMedia = new System.Windows.Forms.TextBox();
@@ -41,6 +40,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.btnChi = new System.Windows.Forms.Button();
+            this.btnGrafico = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grilla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,25 +53,17 @@
             this.btnVolver.TabIndex = 0;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(133, 316);
+            this.btnGenerar.Location = new System.Drawing.Point(102, 316);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(75, 23);
             this.btnGenerar.TabIndex = 1;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(249, 316);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 2;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -151,11 +144,33 @@
             this.txtCantidad.Size = new System.Drawing.Size(100, 20);
             this.txtCantidad.TabIndex = 6;
             // 
+            // btnChi
+            // 
+            this.btnChi.Location = new System.Drawing.Point(264, 316);
+            this.btnChi.Name = "btnChi";
+            this.btnChi.Size = new System.Drawing.Size(75, 23);
+            this.btnChi.TabIndex = 13;
+            this.btnChi.Text = "Test Chi";
+            this.btnChi.UseVisualStyleBackColor = true;
+            this.btnChi.Click += new System.EventHandler(this.btnChi_Click);
+            // 
+            // btnGrafico
+            // 
+            this.btnGrafico.Location = new System.Drawing.Point(183, 316);
+            this.btnGrafico.Name = "btnGrafico";
+            this.btnGrafico.Size = new System.Drawing.Size(75, 23);
+            this.btnGrafico.TabIndex = 12;
+            this.btnGrafico.Text = "Grafico";
+            this.btnGrafico.UseVisualStyleBackColor = true;
+            this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
+            // 
             // Normal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 351);
+            this.Controls.Add(this.btnChi);
+            this.Controls.Add(this.btnGrafico);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.grilla);
             this.Controls.Add(this.txtCantidad);
@@ -164,7 +179,6 @@
             this.Controls.Add(this.txtMedia);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.btnVolver);
             this.Name = "Normal";
@@ -179,7 +193,6 @@
 
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnGenerar;
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMedia;
@@ -190,5 +203,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCantidad;
+        private System.Windows.Forms.Button btnChi;
+        private System.Windows.Forms.Button btnGrafico;
     }
 }
