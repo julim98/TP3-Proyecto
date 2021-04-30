@@ -10,3 +10,5 @@ C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\De
 C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3 proyecto.exe
 C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3 proyecto.pdb
 C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3_proyecto.Formularios.Uniforme.resources
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3 proyecto.csprojAssemblyReference.cache
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3_proyecto.Formularios.Poisson.resources

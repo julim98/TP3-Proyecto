@@ -89,7 +89,6 @@ namespace TP3_proyecto.Formularios
             this.txtCantValores.Name = "txtCantValores";
             this.txtCantValores.Size = new System.Drawing.Size(56, 20);
             this.txtCantValores.TabIndex = 5;
-            this.txtCantValores.TextChanged += new System.EventHandler(this.txtCantValores_TextChanged);
             // 
             // txtLambda
             // 

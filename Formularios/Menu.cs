@@ -18,11 +18,11 @@ namespace TP3_proyecto
             InitializeComponent();
         }
 
- Poisson
         private void bPoisson_Click(object sender, EventArgs e)
         {
             Poisson poisson = new Poisson();
             poisson.Show();
+        }
 
         private void bExponencial_Click(object sender, EventArgs e)
         {
@@ -34,7 +34,6 @@ namespace TP3_proyecto
         {
             Uniforme uniforme = new Uniforme();
             uniforme.Show();
- main
         }
     }
 }

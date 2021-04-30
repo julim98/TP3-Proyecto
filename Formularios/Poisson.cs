@@ -52,9 +52,5 @@ namespace TP3_proyecto.Formularios
 
         }
 
-        private void txtCantValores_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
