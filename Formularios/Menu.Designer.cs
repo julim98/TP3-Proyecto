@@ -70,6 +70,7 @@
             this.bNormal.TabIndex = 3;
             this.bNormal.Text = "Normal";
             this.bNormal.UseVisualStyleBackColor = true;
+            this.bNormal.Click += new System.EventHandler(this.bNormal_Click);
             // 
             // label1
             // 

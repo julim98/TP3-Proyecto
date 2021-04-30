@@ -35,5 +35,11 @@ namespace TP3_proyecto
             Uniforme uniforme = new Uniforme();
             uniforme.Show();
         }
+
+        private void bNormal_Click(object sender, EventArgs e)
+        {
+            Normal normal = new Normal();
+            normal.Show();
+        }
     }
 }
