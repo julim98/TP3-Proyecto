@@ -39,7 +39,8 @@
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnVolver = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnGrafico = new System.Windows.Forms.Button();
+            this.btnChi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grilla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +86,7 @@
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(140, 207);
+            this.btnGenerar.Location = new System.Drawing.Point(89, 207);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(75, 23);
             this.btnGenerar.TabIndex = 5;
@@ -133,7 +134,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(42, 207);
+            this.btnVolver.Location = new System.Drawing.Point(8, 207);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
             this.btnVolver.TabIndex = 7;
@@ -141,21 +142,33 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
-            // btnGuardar
+            // btnGrafico
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(239, 207);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 8;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGrafico.Location = new System.Drawing.Point(170, 207);
+            this.btnGrafico.Name = "btnGrafico";
+            this.btnGrafico.Size = new System.Drawing.Size(75, 23);
+            this.btnGrafico.TabIndex = 8;
+            this.btnGrafico.Text = "Grafico";
+            this.btnGrafico.UseVisualStyleBackColor = true;
+            this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
+            // 
+            // btnChi
+            // 
+            this.btnChi.Location = new System.Drawing.Point(251, 207);
+            this.btnChi.Name = "btnChi";
+            this.btnChi.Size = new System.Drawing.Size(75, 23);
+            this.btnChi.TabIndex = 9;
+            this.btnChi.Text = "Test Chi";
+            this.btnChi.UseVisualStyleBackColor = true;
+            this.btnChi.Click += new System.EventHandler(this.btnChi_Click);
             // 
             // Exponencial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(674, 259);
-            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnChi);
+            this.Controls.Add(this.btnGrafico);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.grilla);
             this.Controls.Add(this.btnGenerar);
@@ -186,6 +199,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor;
         private System.Windows.Forms.Button btnVolver;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnGrafico;
+        private System.Windows.Forms.Button btnChi;
     }
 }

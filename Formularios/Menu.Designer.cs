@@ -52,6 +52,7 @@
             this.bExponencial.TabIndex = 1;
             this.bExponencial.Text = "Exponencial";
             this.bExponencial.UseVisualStyleBackColor = true;
+            this.bExponencial.Click += new System.EventHandler(this.bExponencial_Click);
             // 
             // bUniforme
             // 

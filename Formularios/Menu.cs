@@ -16,6 +16,7 @@ namespace TP3_proyecto
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void bPoisson_Click(object sender, EventArgs e)

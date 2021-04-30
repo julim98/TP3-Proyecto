@@ -13,3 +13,4 @@ C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\De
 C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3 proyecto.csprojAssemblyReference.cache
 C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3_proyecto.Formularios.Poisson.resources
 C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP3_proyecto.Formularios.Normal.resources
+C:\Users\Julian\Documents\UTN\4 AÑO\Simulacion\Practico\TP3\TP3-Proyecto\obj\Debug\TP1_SIM.TestChiCuadrado.resources
