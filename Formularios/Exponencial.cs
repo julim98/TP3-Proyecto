@@ -47,39 +47,40 @@ namespace TP3_proyecto.Formularios
             return true;
         }
 
-        private decimal completar(int numero)
+        private double completarExponencial(int numero)
         {
+            double n = (double)numero;
             double lambda;
             if (cmbParametro.Text == Parametro.Lambda.ToString())
             {
-                lambda = numero;
+                lambda = n;
             }
             else if (cmbParametro.Text == Parametro.Media.ToString())
             {
-                lambda = 1 / numero;
+                lambda = 1 / n;
             }
             else
             {
-                lambda = 1 / Math.Sqrt(numero);
+                lambda = Math.Pow(1 / Math.Sqrt(n),2);
             }
-            return decimal.Parse(lambda.ToString());
+            return lambda;
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             if (verificarEntradas())
             {
-                var rand = new Random();
+                Random rand = new Random();
                 int cantidad = int.Parse(txtCantidad.Text);
-                decimal lambda = completar(int.Parse(txtParametro.Text));
+                double lambda = completarExponencial(int.Parse(txtParametro.Text));
                 grilla.Rows.Clear();
-                grilla.Rows.Add(cantidad);
 
                 for (int i = 0; i < cantidad ; i++)
                 {
-                    decimal x = decimal.Round(- (1 / lambda) * (1 - rand.Next(0, 1)), 4);
-                    grilla.Rows[i].Cells[0].Value = i++;
-                    grilla.Rows[i].Cells[0].Value = x;
+                    string xTxt = (-(1 / lambda) * Math.Log(1 - rand.NextDouble())).ToString();
+                    decimal x = decimal.Parse(xTxt);
+                    x = decimal.Round(x, 4);
+                    grilla.Rows.Add(i + 1, x);
                 }
             }
         }
