@@ -15,7 +15,7 @@ namespace TP3_proyecto.Formularios
         bool band_Ok = false;
         decimal[] listaLocal;
         int distribucionLocal;
-        // 0 = normal , 1 = uniforme, 2 = poisson , 3 = exponencial
+        // 0 = normal , 1 = uniforme, 2 = poisson , 3 = exponencial -
         decimal[] minMaxLocal = new decimal[2];
         decimal parametro;
 
@@ -94,11 +94,11 @@ namespace TP3_proyecto.Formularios
             {
                 for (int j = 0; j < listaLocal.Length; j++)
                 {
-                    if (i == 0 && listaLocal[j] < intervaloMax && listaLocal[j] >= intervaloMin - 1)
+                    if ((i == 0 && listaLocal[j] < intervaloMax )||( i == 0 && listaLocal[j] == minMaxLocal[1]))
                     {
                         intervalos[i] += 1;
                     }
-                    if (listaLocal[j] < intervaloMax && listaLocal[j] >= intervaloMin)
+                    else if (listaLocal[j] < intervaloMax && listaLocal[j] >= intervaloMin)
                     {
                         intervalos[i] += 1;
                     }
@@ -197,7 +197,7 @@ namespace TP3_proyecto.Formularios
                 while (feIntermedio[feIntermedio.Count - (contador + 1)] < 5 && feIntermedio.Count > 1)
                 {
                     feIntermedio[feIntermedio.Count - (contador + 1)] += feIntermedio[feIntermedio.Count - (contador + 2)];
-                    foIntermedio[feIntermedio.Count - (contador + 1)] += foIntermedio[feIntermedio.Count - (contador + 2)];
+                    foIntermedio[foIntermedio.Count - (contador + 1)] += foIntermedio[foIntermedio.Count - (contador + 2)];
                     desdeIntermedio[feIntermedio.Count - (contador + 1)] = desdeIntermedio[feIntermedio.Count - (contador + 2)];
 
                     feIntermedio.RemoveAt(feIntermedio.Count - (contador + 2));
