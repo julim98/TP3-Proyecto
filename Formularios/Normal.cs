@@ -16,6 +16,7 @@ namespace TP3_proyecto.Formularios
     {
         decimal[] lista;
         decimal[] minMax = new decimal[2];
+        double desviacion;
 
         public Normal()
         {
@@ -51,7 +52,7 @@ namespace TP3_proyecto.Formularios
                 Random random = new Random();
                 int cantidad = int.Parse(txtCantidad.Text);
                 double media = double.Parse(txtMedia.Text);
-                double varianza = (double)decimal.Parse(Math.Sqrt(double.Parse(txtVarianza.Text)).ToString());
+                desviacion = (double)decimal.Parse(Math.Sqrt(double.Parse(txtVarianza.Text)).ToString());
                 lista = new decimal[cantidad];
 
                 grilla.Rows.Clear();
@@ -63,7 +64,7 @@ namespace TP3_proyecto.Formularios
                 {
                     if (i % 2 == 0)
                     {
-                        string n1s = (Math.Sqrt(-2 * Math.Log(random1)) * Math.Cos(2 * Math.PI * random2) * varianza + media).ToString();
+                        string n1s = (Math.Sqrt(-2 * Math.Log(random1)) * Math.Cos(2 * Math.PI * random2) * desviacion + media).ToString();
                         decimal n1 = decimal.Round(decimal.Parse(n1s), 4);
                         lista[i] = n1;
                         if (i == 0)
@@ -81,7 +82,7 @@ namespace TP3_proyecto.Formularios
                     }
                     else
                     {
-                        string n2s = (Math.Sqrt(-2 * Math.Log(random1)) * Math.Sin(2 * Math.PI * random2) * varianza + media).ToString();
+                        string n2s = (Math.Sqrt(-2 * Math.Log(random1)) * Math.Sin(2 * Math.PI * random2) * desviacion + media).ToString();
                         decimal n2 = decimal.Round(decimal.Parse(n2s), 4);
                         lista[i] = n2;
                         if (i == 0)
@@ -117,7 +118,7 @@ namespace TP3_proyecto.Formularios
 
         private void btnChi_Click(object sender, EventArgs e)
         {
-            TestChiCuadrado test = new TestChiCuadrado(lista, 0, minMax, decimal.Parse(txtVarianza.Text));
+            TestChiCuadrado test = new TestChiCuadrado(lista, 0, minMax, (decimal) desviacion);
             test.Show();
         }
     }
