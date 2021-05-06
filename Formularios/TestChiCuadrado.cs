@@ -80,7 +80,11 @@ namespace TP3_proyecto.Formularios
             decimal[] intervalos = new decimal[num];
             if (distribucionLocal == 2)
             {
-                tamañoIntervalo = Math.Round(minMaxLocal[1] - minMaxLocal[0]) / ((decimal)num);
+                tamañoIntervalo = Math.Round((minMaxLocal[1] - minMaxLocal[0]) / ((decimal)num));
+                if (tamañoIntervalo == 0)
+                {
+                    tamañoIntervalo = 1;
+                }
             }
             else
             {
