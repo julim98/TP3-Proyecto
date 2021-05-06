@@ -14,6 +14,7 @@ namespace TP3_proyecto.Formularios
     public partial class Uniforme : Form
     {
         decimal[] lista;
+        decimal[] minMax = new decimal[2];
 
         public Uniforme()
         {
@@ -43,13 +44,13 @@ namespace TP3_proyecto.Formularios
 
         private bool verificarEntradas()
         {
-            if (!int.TryParse(txtLimiteA.Text, out int resultado1))
+            if (!decimal.TryParse(txtLimiteA.Text, out decimal resultado1))
             {
                 MessageBox.Show("Ingrese correctamente el Limite A");
                 return false;
             }
 
-            if (!int.TryParse(txtLimiteB.Text, out int resultado2))
+            if (!decimal.TryParse(txtLimiteB.Text, out decimal resultado2))
             {
                 MessageBox.Show("Ingrese correctamente el Limite B");
                 return false;
@@ -76,6 +77,8 @@ namespace TP3_proyecto.Formularios
                 return false;
             }
 
+            minMax[0] = A;
+            minMax[1] = B;
             return true;
         }
 
@@ -92,7 +95,7 @@ namespace TP3_proyecto.Formularios
 
         private void btnChi_Click(object sender, EventArgs e)
         {
-            TestChiCuadrado test = new TestChiCuadrado(lista);
+            TestChiCuadrado test = new TestChiCuadrado(lista, 1, minMax, 0);
             test.Show();
         }
     }

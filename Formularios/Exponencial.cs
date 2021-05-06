@@ -14,6 +14,8 @@ namespace TP3_proyecto.Formularios
     public partial class Exponencial : Form
     {
         decimal[] lista;
+        decimal[] minMax = new decimal[2];
+        decimal param;
 
         public Exponencial()
         {
@@ -36,7 +38,7 @@ namespace TP3_proyecto.Formularios
 
         private bool verificarEntradas()
         {
-            if (!int.TryParse(txtParametro.Text, out int resultado1) || resultado1 <= 0)
+            if (!double.TryParse(txtParametro.Text, out double resultado1))
             {
                 MessageBox.Show("Ingrese correctamente el parametro");
                 return false;
@@ -50,22 +52,22 @@ namespace TP3_proyecto.Formularios
             return true;
         }
 
-        private double completarExponencial(int numero)
+        private double completarExponencial(double numero)
         {
-            double n = (double)numero;
             double lambda;
             if (cmbParametro.Text == Parametro.Lambda.ToString())
             {
-                lambda = n;
+                lambda = numero;
             }
             else if (cmbParametro.Text == Parametro.Media.ToString())
             {
-                lambda = 1 / n;
+                lambda = 1 / numero;
             }
             else
             {
-                lambda = Math.Pow(1 / Math.Sqrt(n),2);
+                lambda = Math.Pow(1 / Math.Sqrt(numero),2);
             }
+            param = (decimal)lambda;
             return lambda;
         }
 
@@ -75,7 +77,7 @@ namespace TP3_proyecto.Formularios
             {
                 Random rand = new Random();
                 int cantidad = int.Parse(txtCantidad.Text);
-                double lambda = completarExponencial(int.Parse(txtParametro.Text));
+                double lambda = completarExponencial(double.Parse(txtParametro.Text));
                 lista = new decimal[cantidad];
                 grilla.Rows.Clear();
 
@@ -85,6 +87,18 @@ namespace TP3_proyecto.Formularios
                     decimal x = decimal.Parse(xTxt);
                     x = decimal.Round(x, 4);
                     lista[i] = x;
+
+                    if (i == 0)
+                    {
+                        minMax[0] = x;
+                        minMax[1] = x;
+                    }
+                    else
+                    {
+                        if (x < minMax[0]) minMax[0] = x;
+                        if (x > minMax[1]) minMax[1] = x;
+                    }
+
                     grilla.Rows.Add(i + 1, x);
                 }
             }
@@ -103,7 +117,7 @@ namespace TP3_proyecto.Formularios
 
         private void btnChi_Click(object sender, EventArgs e)
         {
-            TestChiCuadrado test = new TestChiCuadrado(lista);
+            TestChiCuadrado test = new TestChiCuadrado(lista, 3, minMax, param);
             test.Show();
         }
     }

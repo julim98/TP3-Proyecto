@@ -14,6 +14,7 @@ namespace TP3_proyecto.Formularios
     public partial class Poisson : Form
     {
         decimal[] lista;
+        decimal[] minMax = new decimal[2];
 
         public Poisson()
         {
@@ -44,6 +45,16 @@ namespace TP3_proyecto.Formularios
                     x = x + 1;
                 } while (p >= a);
                 lista[i] = (decimal)x;
+                if (i == 0)
+                {
+                    minMax[0] = (decimal)x;
+                    minMax[1] = (decimal)x;
+                }
+                else
+                {
+                    if ((decimal)x < minMax[0]) minMax[0] = (decimal)x;
+                    if ((decimal)x > minMax[1]) minMax[1] = (decimal)x;
+                }
                 dgv.Rows.Add(i + 1, x);
             }
         }
@@ -72,6 +83,13 @@ namespace TP3_proyecto.Formularios
                 return;
             }
 
+            if (!decimal.TryParse(txtLambda.Text, out decimal resultado2) || resultado2 <= 0)
+            {
+                MessageBox.Show("Ingrese correctamente el valor de λ");
+                bandera = false;
+                return;
+            }
+
 
         }
 
@@ -88,7 +106,7 @@ namespace TP3_proyecto.Formularios
 
         private void btnChi_Click(object sender, EventArgs e)
         {
-            TestChiCuadrado test = new TestChiCuadrado(lista);
+            TestChiCuadrado test = new TestChiCuadrado(lista, 2, minMax, decimal.Parse(txtLambda.Text));
             test.Show();
         }
     }

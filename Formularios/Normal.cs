@@ -15,6 +15,7 @@ namespace TP3_proyecto.Formularios
     public partial class Normal : Form
     {
         decimal[] lista;
+        decimal[] minMax = new decimal[2];
 
         public Normal()
         {
@@ -65,6 +66,16 @@ namespace TP3_proyecto.Formularios
                         string n1s = (Math.Sqrt(-2 * Math.Log(random1)) * Math.Cos(2 * Math.PI * random2) * varianza + media).ToString();
                         decimal n1 = decimal.Round(decimal.Parse(n1s), 4);
                         lista[i] = n1;
+                        if (i == 0)
+                        {
+                            minMax[0] = n1;
+                            minMax[1] = n1;
+                        }
+                        else
+                        {
+                            if (n1 < minMax[0]) minMax[0] = n1;
+                            if (n1 > minMax[1]) minMax[1] = n1;
+                        }
 
                         grilla.Rows.Add(i + 1, n1);
                     }
@@ -73,6 +84,16 @@ namespace TP3_proyecto.Formularios
                         string n2s = (Math.Sqrt(-2 * Math.Log(random1)) * Math.Sin(2 * Math.PI * random2) * varianza + media).ToString();
                         decimal n2 = decimal.Round(decimal.Parse(n2s), 4);
                         lista[i] = n2;
+                        if (i == 0)
+                        {
+                            minMax[0] = n2;
+                            minMax[1] = n2;
+                        }
+                        else
+                        {
+                            if (n2 < minMax[0]) minMax[0] = n2;
+                            if (n2 > minMax[1]) minMax[1] = n2;
+                        }
 
                         grilla.Rows.Add(i + 1, n2);
 
@@ -96,7 +117,7 @@ namespace TP3_proyecto.Formularios
 
         private void btnChi_Click(object sender, EventArgs e)
         {
-            TestChiCuadrado test = new TestChiCuadrado(lista);
+            TestChiCuadrado test = new TestChiCuadrado(lista, 0, minMax, decimal.Parse(txtVarianza.Text));
             test.Show();
         }
     }
